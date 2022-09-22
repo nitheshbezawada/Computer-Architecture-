@@ -1,0 +1,12 @@
+1' s Compliment:
+LDA 3000H
+CMA
+STA 3001H
+HLT
+
+2's Compliment:
+LDA 3000H
+CMA
+INR A
+STA 3001H
+HLT
