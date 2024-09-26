@@ -1,0 +1,38 @@
+public class Main
+{
+    public static int findnextmultiplier(int i, int b)
+    {
+        for (int j = i; j <= i * b; j++)
+        {
+            if (j % b == 0)
+                return j;
+        }
+         
+        return 0;
+    }
+    public static int ans(int n, int b, int m, int user[])
+    {
+       int start, ch = 1, nextmultiplier;
+        nextmultiplier= findnextmultiplier(user[0] + 1, b);
+        start = nextmultiplier - b + 1;
+       
+        for (int i = 1; i < m; i++)
+        {
+            if (user[i] + 1 > nextmultiplier || user[i] + 1 < start)
+            {
+                ch++;
+                nextmultiplier= findnextmultiplier(user[i] + 1, b);
+                start = nextmultiplier - b + 1;
+            }
+        }
+        System.out.println(ch);
+     return 0;
+    }
+ 
+    public static void main(String[] args)
+    {
+        int n=5, b=3, m=3;
+        int user[] = {0, 3, 4};
+        ans(n, b, m, user);
+    }
+}
